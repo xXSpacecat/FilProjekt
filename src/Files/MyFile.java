@@ -7,9 +7,9 @@ public class MyFile {
     String fileName = "myFile.txt";
     File myFileObject;
 
-    public void MyFiles() {
+    public MyFile() {
         createFile(); //creates a file
-        //write2File(); //Writes to a file
+        write2File(); //Writes to a file
         readFromFile();
     }
 

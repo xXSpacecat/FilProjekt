@@ -1,6 +1,7 @@
 package Files;
 
 import java.io.*;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class MyFile {
@@ -27,12 +28,21 @@ public class MyFile {
 
     private void write2File() {
         try {
-            FileWriter myWriterObject = new FileWriter(fileName, true);
             Scanner myKeyScanner = new Scanner(System.in);
-            System.out.println("What do you want to write in the file?");
-            myWriterObject.write(myKeyScanner.nextLine());
-            myWriterObject.close();
-            System.out.println("I wrote to file " + fileName);
+            System.out.println("Do you want to overwrite the file? (y/n)");
+            if (Objects.equals(myKeyScanner.nextLine(), "y")) {
+                FileWriter myWriterObject = new FileWriter(fileName, false);
+                System.out.println("What do you want to write in the file?");
+                myWriterObject.write(myKeyScanner.nextLine());
+                myWriterObject.close();
+                System.out.println("I wrote to file " + fileName);
+            } else {
+                FileWriter myWriterObject = new FileWriter(fileName, true);
+                System.out.println("What do you want to write in the file?");
+                myWriterObject.write(myKeyScanner.nextLine());
+                myWriterObject.close();
+                System.out.println("I wrote to file " + fileName);
+            }
         } catch (IOException e) {
             System.out.println("could not write to file");
         }

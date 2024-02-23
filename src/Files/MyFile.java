@@ -15,6 +15,7 @@ public class MyFile {
     }
 
     private void readFromFile() {
+        //Reads the contents of the file with a scanner and writes it out
         try {
             Scanner myFileScanner = new Scanner(myFileObject);
             while (myFileScanner.hasNext()) {
@@ -27,6 +28,7 @@ public class MyFile {
     }
 
     private void write2File() {
+        //Captures input from user and writes it then down in the file
         try {
             Scanner myKeyScanner = new Scanner(System.in);
             System.out.println("Do you want to overwrite the file? (y/n)");
@@ -49,6 +51,7 @@ public class MyFile {
     }
 
     public void createFile() {
+        //Creates a file
         myFileObject = new File(fileName);
         try {
             if (myFileObject.createNewFile()) {
